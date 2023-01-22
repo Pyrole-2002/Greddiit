@@ -12,7 +12,6 @@ function LoginBar() {
 	<div
 		style={{
 		   display: 'flex',
-		   alignSelf: 'flex-start',
 		}}
 	>
 		<Box sx={{
@@ -30,21 +29,37 @@ function LoginBar() {
 					width: '100%',
 				}}
 			>
-				<Toolbar>
+				<Toolbar sx={{
+					display: 'flex',
+				}}>
 					<IconButton
 						size="large"
 						edge="start"
-						color={Colors.White}
-						aria-label="menu"
-						sx={{ mr: '72.5vw' }}
+						color={Colors.Orange}
+						aria-label="Home"
+						sx={{
+							mr: 0,
+							display: 'flex',
+							flex: 1,
+						}}
 					>
 						<MenuIcon />
 						Greddiit
 					</IconButton>
-					<Button color="inherit">
+					<Button color="inherit"
+						sx={{
+							mr: 0,
+							display: 'flex',
+						}}
+					>
 						Login
 					</Button>
-					<Button color="inherit">
+					<Button color="inherit"
+						sx={{
+							mr: 0,
+							display: 'flex',
+						}}
+					>
 						SignUp
 					</Button>
 				</Toolbar>

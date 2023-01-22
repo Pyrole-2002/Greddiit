@@ -26,9 +26,10 @@ function Login() {
 			}}
 			style={{
 				display: 'flex',
-                alignItems: 'stretch',
 				border: `5px solid ${Colors.Orange}`,
 				flexFlow: 'row wrap',
+				flexDirection: 'column',
+                // alignItems: 'stretch',
 			}}
 		>
 
