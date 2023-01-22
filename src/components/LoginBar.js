@@ -1,70 +1,55 @@
 import React from 'react'
 import { Colors } from "./Colors.js";
-import AppBar from '@mui/material/AppBar'
+import Logo from "../assets/greddit_ph_trans.jpg"
 import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
+import EnabledButton from './EnabledButton.js'
+import DisabledButton from './DisabledButton.js'
 
 function LoginBar() {
   return (
 	<div
 		style={{
-		   display: 'flex',
+			backgroundColor: Colors.Midnight,
+			width: '87vw',
+			height: '70px',
+			borderRadius: '75px',
+			boxShadow: `5px 5px 5px ${Colors.Midnight}`,
+			display: 'flex',
+			position: 'relative',
+			top: '0.1vw',
+			left: '2.2vw',
+			display: 'flex',
 		}}
 	>
-		<Box sx={{
-			display: 'flex',
-			justifyContent: 'center',
-			flex: 1,
-			// backgroundColor: Colors.White,
-			margin: '0 1vw 0 1vw',
+		<img src={Logo} alt="Greddiit"
+		style={{
+			margin: '0 5px 0 5px',
 		}}
+		/>
+		<div
+			style={{
+				flex: 1,
+			}}
+		/>
+		<div
+			style={{
+				position: 'relative',
+				top: '0.8vw',
+				left: '-3vw',
+			}}
 		>
-			<AppBar
-				position="static"
-				sx={{
-					borderRadius: 10,
-					width: '100%',
-				}}
-			>
-				<Toolbar sx={{
-					display: 'flex',
-				}}>
-					<IconButton
-						size="large"
-						edge="start"
-						color={Colors.Orange}
-						aria-label="Home"
-						sx={{
-							mr: 0,
-							display: 'flex',
-							flex: 1,
-						}}
-					>
-						<MenuIcon />
-						Greddiit
-					</IconButton>
-					<Button color="inherit"
-						sx={{
-							mr: 0,
-							display: 'flex',
-						}}
-					>
-						Login
-					</Button>
-					<Button color="inherit"
-						sx={{
-							mr: 0,
-							display: 'flex',
-						}}
-					>
-						SignUp
-					</Button>
-				</Toolbar>
-			</AppBar>
-		</Box>
+			<EnabledButton TextInButton="Login"/>
+		</div>
+		<div
+			style={{
+				position: 'relative',
+				top: '0.8vw',
+				left: '-2vw',
+			}}
+		>
+			<DisabledButton TextInButton="SignUp"/>
+		</div>
 	</div>
   )
 }

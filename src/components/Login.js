@@ -1,5 +1,5 @@
 import './Style.css'
-import Image from '../assets/greddit_logo_final_upscaled.png'
+import Icon from '../assets/greddit_logo_final_upscaled.png'
 import { Colors } from './Colors.js'
 import React from 'react'
 import Box from '@mui/material/Box'
@@ -13,41 +13,48 @@ function Login() {
 		alignItems: 'flex-start',
 		justifyContent: 'center',
 	}}>
-
-		<Box
+		<Box 
 			sx={{
 				width: '92vw',
-				height: '85vh',
+				height: '90vh',
 				backgroundColor: Colors.Orange,
 				'&:hover': {
 					backgroundColor: Colors.DarkGrey,
 				},
-				borderRadius: 10,
+				borderRadius: '75px',
 			}}
 			style={{
 				display: 'flex',
 				border: `5px solid ${Colors.Orange}`,
-				flexFlow: 'row wrap',
 				flexDirection: 'column',
-                // alignItems: 'stretch',
+				// alignItems: 'center',
 			}}
-		>
-
+			>
 			<LoginBar />
 
-			<img
-				src={Image}
-				alt={"Greddiit Logo"}
-				width="30%"
+			<div
 				style={{
-					// margin: '0 3% 0 4%',
+					flex: 1,
 					display: 'flex',
-					alignSelf: 'center',
-				}}
-			/>
-
+					flexDirection: 'row',
+					justifyContent: 'space-around',
+                    alignItems: 'center',
+					// backgroundColor: Colors.Blue,
+				}}	
+			>
+				<img
+					src={Icon}
+					alt={"Greddiit Logo"}
+					width="420vw"
+					style={{
+						display: 'flex',
+						alignSelf: 'center',
+					}}
+				/>
+				{/* Debug */}
+				<div style={{ backgroundColor:`${Colors.Cyan}`, width: 500, height: 500 }}></div>
+			</div>
 		</Box>
-
 	</div>
   )
 }
