@@ -1,3 +1,11 @@
+import { createTheme } from "@mui/material/styles"
+
+export const darkTheme = createTheme({
+    palette: {
+        mode: 'dark',
+    },
+})
+
 export const Colors = {
     White: "rgb(255, 255, 255)",
     Black: "rgb(0, 0, 0)",
@@ -11,4 +19,7 @@ export const Colors = {
     Blue: "rgb(0, 55, 255)",
     Cyan: "rgb(0, 255, 255)",
     Midnight: "rgb(0, 0, 20)",
+    SharpGreen: "rgb(0, 255, 15)",
+    BrightGreen: "rgb(0, 255, 75)",
+    Teal: "rgb(0, 255, 150)",
 };

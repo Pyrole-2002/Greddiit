@@ -1,13 +1,8 @@
 import './App.css'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import Login from './components/Login'
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-})
+import Login from './components/Login.js'
+import { darkTheme } from './components/Colors.js'
 
 function App() {
 	return (

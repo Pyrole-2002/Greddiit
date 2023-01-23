@@ -1,12 +1,9 @@
 import React from 'react'
-import { Colors } from "./Colors.js";
+import { Colors } from "./Colors.js"
 import Logo from "../assets/greddit_ph_trans.jpg"
-import Box from '@mui/material/Box'
-import MenuIcon from '@mui/icons-material/Menu'
-import EnabledButton from './EnabledButton.js'
-import DisabledButton from './DisabledButton.js'
+import TogButtonGrp from './TogButtonGrp.js'
 
-function LoginBar() {
+function LoginBar(props) {
   return (
 	<div
 		style={{
@@ -19,7 +16,6 @@ function LoginBar() {
 			position: 'relative',
 			top: '0.1vw',
 			left: '2.2vw',
-			display: 'flex',
 		}}
 	>
 		<img src={Logo} alt="Greddiit"
@@ -32,23 +28,8 @@ function LoginBar() {
 				flex: 1,
 			}}
 		/>
-		<div
-			style={{
-				position: 'relative',
-				top: '0.8vw',
-				left: '-3vw',
-			}}
-		>
-			<EnabledButton TextInButton="Login"/>
-		</div>
-		<div
-			style={{
-				position: 'relative',
-				top: '0.8vw',
-				left: '-2vw',
-			}}
-		>
-			<DisabledButton TextInButton="SignUp"/>
+		<div>
+			<TogButtonGrp handleTabChange={props.handleTabChange} texts={['Login', 'Sign Up']}/>
 		</div>
 	</div>
   )
