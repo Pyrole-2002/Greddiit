@@ -31,6 +31,7 @@ function Login() {
 						backgroundColor: Colors.DarkGrey,
 					},
 					borderRadius: '75px',
+					transition: 'background-color 0.5s ease-in-out'
 				}}
 				style={{
 					display: 'flex',

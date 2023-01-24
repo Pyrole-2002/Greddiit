@@ -26,112 +26,127 @@ function LoginForm() {
 		})
 	}
 
+	const [email, setEmail] = React.useState("")
+	const [password, setPassword] = React.useState("")
+
+	const handleEmailChange = (event) => {
+		setEmail(event.target.value)
+	}
+	const handlePasswordChange = (event) => {
+		setPassword(event.target.value)
+	}
+
   	return (
-        <div
+		<div
 			className="LoginForm" 
 			style={{
 				position: 'relative',
 				top: '-5vw',
 			}}
 		>
-            <ThemeProvider theme={darkTheme}>
-                <Container component="main" maxWidth="xs">
-                    <CssBaseline />
-                    <Box
-                        sx={{
-                            marginTop: 8,
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Avatar
-                            sx={{
-                                margin: 1,
-                                backgroundColor: "secondary.main",
-                            }}
-                        >
-                            <LockOutlinedIcon />
-                        </Avatar>
-                        <Typography component="h1" variant="h5">
-                            LOGIN
-                        </Typography>
-                        <Box
-                            component="form"
-                            onSubmit={handleSubmit}
-                            noValidate
-                            sx={{ mt: 1 }}
-                        >
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
-                                autoFocus
-                            />
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="password"
-                                label="Password"
-                                name="password"
-                                autoComplete="current-password"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        value="remember"
-                                        color="primary"
-                                    />
-                                }
-                                label="Remember me"
-                            />
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                            >
-                                Login
-                            </Button>
-                            <Grid container>
-                                <Grid item xs>
-                                    <Link href="#" variant="body2">
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                            }}
-                                        >
-                                            <LockResetRoundedIcon />
-                                            <span>Forgot Password?</span>
-                                        </div>
-                                    </Link>
-                                </Grid>
-                                <Grid item>
-                                    <Link href="#" variant="body2">
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                            }}
-                                        >
-                                            <AddCircleRoundedIcon />
-                                            <span>{"Don't Have an Account? Sign Up"}</span>
-                                        </div>
-                                    </Link>
-                                </Grid>
-                            </Grid>
-                        </Box>
-                    </Box>
-                </Container>
-            </ThemeProvider>
-        </div>
-    );
+			<ThemeProvider theme={darkTheme}>
+				<Container component="main" maxWidth="xs">
+					<CssBaseline />
+					<Box
+						sx={{
+							marginTop: 8,
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
+						}}
+					>
+						<Avatar
+							sx={{
+								margin: 1,
+								backgroundColor: "secondary.main",
+							}}
+						>
+							<LockOutlinedIcon />
+						</Avatar>
+						<Typography component="h1" variant="h5">
+							LOGIN
+						</Typography>
+						<Box
+							component="form"
+							onSubmit={handleSubmit}
+							noValidate
+							sx={{ mt: 1 }}
+						>
+							<TextField
+								margin="normal"
+								required
+								fullWidth
+								id="email"
+								label="Email Address"
+								name="email"
+								autoComplete="email"
+								autoFocus
+								value={email}
+								onChange={handleEmailChange}
+							/>
+							<TextField
+								margin="normal"
+								required
+								fullWidth
+								id="password"
+								label="Password"
+								name="password"
+								autoComplete="current-password"
+								value={password}
+								onChange={handlePasswordChange}
+							/>
+							<FormControlLabel
+								control={
+									<Checkbox
+										value="remember"
+										color="primary"
+									/>
+								}
+								label="Remember me"
+							/>
+							<Button
+								type="submit"
+								fullWidth
+								variant="contained"
+								sx={{ mt: 3, mb: 2 }}
+								disabled={email ==="" || password ===""}
+							>
+								Login
+							</Button>
+							<Grid container>
+								<Grid item xs>
+									<Link href="#" variant="body2">
+										<div
+											style={{
+												display: "flex",
+												alignItems: "center",
+											}}
+										>
+											<LockResetRoundedIcon />
+											<span>Forgot Password?</span>
+										</div>
+									</Link>
+								</Grid>
+								<Grid item>
+									<Link href="#" variant="body2">
+										<div
+											style={{
+												display: "flex",
+												alignItems: "center",
+											}}
+										>
+											<AddCircleRoundedIcon />
+											<span>{"Don't Have an Account? Sign Up"}</span>
+										</div>
+									</Link>
+								</Grid>
+							</Grid>
+						</Box>
+					</Box>
+				</Container>
+			</ThemeProvider>
+		</div>
+	);
 }
 
 export default LoginForm
