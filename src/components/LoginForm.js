@@ -15,8 +15,11 @@ import { ThemeProvider } from "@mui/material/styles"
 import { darkTheme, Colors } from './Colors.js'
 import LockResetRoundedIcon from "@mui/icons-material/LockResetRounded"
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded"
+import { useNavigate, useHistory } from 'react-router-dom'
 
 function LoginForm(props) {
+	const history = useHistory()
+
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		const data = new FormData(event.currentTarget)
@@ -24,6 +27,9 @@ function LoginForm(props) {
 			email: data.get('email'),
 			password: data.get('password')
 		})
+		if ((data.get('email') === "admin") && (data.get('password') === "admin")) {
+			history.push('/profile')
+		}
 	}
 
 	const [email, setEmail] = React.useState("")
