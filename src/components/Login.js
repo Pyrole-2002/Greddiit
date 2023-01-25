@@ -48,7 +48,6 @@ function Login() {
 						flexDirection: 'row',
 						justifyContent: 'space-around',
 						alignItems: 'center',
-						alignContent: 'stretch',
 						overflow: 'scroll',
 					}}	
 				>
@@ -61,7 +60,7 @@ function Login() {
 							alignSelf: 'center',
 						}}
 					/>
-					{selectedTab === "Login" ? <LoginForm /> : <SignUpForm />}
+					{selectedTab === "Login" ? <LoginForm handleTabChange={handleTabChange}/> : <SignUpForm handleTabChange={handleTabChange}/>}
 				</div>
 			</Box>
 		</div>

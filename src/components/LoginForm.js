@@ -16,7 +16,7 @@ import { darkTheme, Colors } from './Colors.js'
 import LockResetRoundedIcon from "@mui/icons-material/LockResetRounded"
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded"
 
-function LoginForm() {
+function LoginForm(props) {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		const data = new FormData(event.currentTarget)
@@ -92,6 +92,7 @@ function LoginForm() {
 								label="Password"
 								name="password"
 								autoComplete="current-password"
+								type="password"
 								value={password}
 								onChange={handlePasswordChange}
 							/>
@@ -102,7 +103,7 @@ function LoginForm() {
 										color="primary"
 									/>
 								}
-								label="Remember me"
+								label="Remember Me"
 							/>
 							<Button
 								type="submit"
@@ -128,7 +129,10 @@ function LoginForm() {
 									</Link>
 								</Grid>
 								<Grid item>
-									<Link href="#" variant="body2">
+									<Link
+										variant="body2"
+										onClick={() => props.handleTabChange("SignUp")}
+									>
 										<div
 											style={{
 												display: "flex",
