@@ -6,8 +6,17 @@ import Box from '@mui/material/Box'
 import LoginBar from './LoginBar.js'
 import LoginForm from './LoginForm.js'
 import SignUpForm from './SignUpForm.js'
+import { useNavigate } from "react-router-dom"
 
 function Login() {
+	const navigate = useNavigate()
+
+	React.useEffect(() => {
+		if (localStorage.getItem('email') === 'admin') {
+			navigate('/profile')
+		}
+	})
+
 	const [selectedTab, setSelectedTab] = React.useState("Login")
 
 	const handleTabChange = (newTab) => {
