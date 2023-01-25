@@ -137,22 +137,6 @@ function LoginForm(props) {
 										</div>
 									</Link>
 								</Grid>
-								<Grid item>
-									<Link
-										variant="body2"
-										onClick={() => props.handleTabChange("SignUp")}
-									>
-										<div
-											style={{
-												display: "flex",
-												alignItems: "center",
-											}}
-										>
-											<AddCircleRoundedIcon />
-											<span>{"Don't Have an Account? Sign Up"}</span>
-										</div>
-									</Link>
-								</Grid>
 							</Grid>
 						</Box>
 					</Box>

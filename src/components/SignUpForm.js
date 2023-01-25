@@ -3,9 +3,6 @@ import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import CssBaseline from "@mui/material/CssBaseline"
 import TextField from "@mui/material/TextField"
-import FormControlLabel from "@mui/material/FormControlLabel"
-import Checkbox from "@mui/material/Checkbox"
-import Link from "@mui/material/Link"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
 import AppRegistrationRoundedIcon from "@mui/icons-material/AppRegistrationRounded"
@@ -13,7 +10,6 @@ import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { ThemeProvider } from "@mui/material/styles"
 import { darkTheme, Colors } from "./Colors.js"
-import LoginRoundedIcon from "@mui/icons-material/LoginRounded"
 import MenuItem from "@mui/material/MenuItem"
 import FormControl from "@mui/material/FormControl"
 import Select from "@mui/material/Select"
@@ -229,12 +225,6 @@ function SignUpForm() {
                                         onChange={handlePasswordChange}
                                     />
                                 </Grid>
-                                {/* <Grid item xs={12}>
-        							<FormControlLabel
-        								control={<Checkbox value="allowExtraEmails" color="primary" />}
-        								label="I want to receive inspiration, marketing promotions and updates via email."
-        							/>
-        						</Grid> */}
                             </Grid>
                             <Button
                                 type="submit"
@@ -255,29 +245,12 @@ function SignUpForm() {
                             >
                                 Register
                             </Button>
-                            <Grid container justifyContent="flex-end">
-                                <Grid item>
-                                    <Link href="#" variant="body2">
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                            }}
-                                        >
-                                            <span>
-                                                Already Have an Account? Login
-                                            </span>
-                                            <LoginRoundedIcon />
-                                        </div>
-                                    </Link>
-                                </Grid>
-                            </Grid>
                         </Box>
                     </Box>
                 </Container>
             </ThemeProvider>
         </div>
-    );
+    )
 }
 
 export default SignUpForm

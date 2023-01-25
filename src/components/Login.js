@@ -7,8 +7,15 @@ import LoginBar from './LoginBar.js'
 import LoginForm from './LoginForm.js'
 import SignUpForm from './SignUpForm.js'
 import { useNavigate } from "react-router-dom"
+import Loader from './Loader.js'
 
 function Login() {
+	const [selectedTab, setSelectedTab] = React.useState("Login")
+
+	const handleTabChange = (newTab) => {
+		setSelectedTab(newTab)
+	}
+
 	const navigate = useNavigate()
 
 	React.useEffect(() => {
@@ -16,12 +23,12 @@ function Login() {
 			navigate('/profile')
 		}
 	})
-
-	const [selectedTab, setSelectedTab] = React.useState("Login")
-
-	const handleTabChange = (newTab) => {
-		setSelectedTab(newTab)
+	if (localStorage.getItem('email') === 'admin')	{
+		return (
+			<Loader />
+		)
 	}
+
 	
   	return (
 		<div style={{

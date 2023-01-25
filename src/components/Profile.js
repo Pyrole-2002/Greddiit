@@ -5,6 +5,7 @@ import Logo from '../assets/greddit_ph_trans.jpg'
 import DefaultPfp from './DefaultPfp.js'
 import { useNavigate } from "react-router-dom"
 import Button from "@mui/material/Button"
+import Loader from './Loader.js'
 
 function Profile() {
 	const navigate = useNavigate()
@@ -18,6 +19,12 @@ function Profile() {
 	const handleLogOut = () => {
 		localStorage.removeItem("email")
         navigate("/login")
+	}
+
+	if (localStorage.getItem('email') !== 'admin')	{
+		return (
+			<Loader />
+		)
 	}
 
 
