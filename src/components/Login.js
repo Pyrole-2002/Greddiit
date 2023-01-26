@@ -1,4 +1,3 @@
-import './Style.css'
 import Icon from '../assets/greddit_logo_final_upscaled.png'
 import { Colors } from './Colors.js'
 import React from 'react'

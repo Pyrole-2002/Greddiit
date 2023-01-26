@@ -10,25 +10,39 @@ function stringToColor(string) {
     }
     let color = "#"
     for (i = 0; i < 3; i++) {
-        const value = (hash >> (1*8)) & 0xff
+        const value = (hash >> (i*8)) & 0xff
         color += `00${value.toString(16)}`.slice(-2)
     }
     return color
 }
 
 function stringAvatar(name) {
+    let initials = ""
+    if ((name.indexOf(" ") !== -1) && (name[(name.length) - 1] !== " ")) {
+        initials = `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`
+    }
+    else {
+        initials = name[0]
+    }
     return {
         sx: {
             backgroundColor: stringToColor(name),
         },
-        children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+        children: initials,
     }
 }
 
 function DefaultPfp(props) {
-    return (
+	return (
         <Stack direction="row" spacing={2}>
-            <Avatar {...stringAvatar(props.string)} />
+            <Avatar
+                {...stringAvatar(props.string)}
+				style={{
+					width: props.size,
+                    height: props.size,
+					fontSize: props.size / 2.75,
+				}}
+            />
         </Stack>
     )
 }
