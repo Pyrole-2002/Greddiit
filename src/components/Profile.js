@@ -96,19 +96,19 @@ function Profile() {
                     style={{
                         backgroundColor: Colors.LightGrey,
 						width: '700px',
-						height: '700px',
+						height: '800px',
 						borderRadius: '50px',
-						boxShadow: `10px 10px 30px ${Colors.Black}`,
-						padding: '20px 10px 20px 10px',
+						boxShadow: `20px 20px 30px ${Colors.Black}`,
+						padding: '20px 20px 50px 20px',
 						position: 'relative',
-						top: '20px',
+						top: '30px',
 						display: "flex",
 						flexDirection: 'column',
-						justifyContent: "space-between",
+						justifyContent: "flex-start",
 						alignItems: "center",
                     }}
                 >
-                    <DefaultPfp string="Admin" size={256} />
+                    <DefaultPfp string="Admin Nimda" size={256} />
 					<ProfileInfo username="Admin"/>
                 </div>
 				<ProfileTabs />
