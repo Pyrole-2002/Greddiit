@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Greddiit/static/css/main.72beaf44.css",
-    "main.js": "/Greddiit/static/js/main.ab63d067.js",
+    "main.css": "/Greddiit/static/css/main.291b9cd1.css",
+    "main.js": "/Greddiit/static/js/main.089a59e5.js",
     "static/js/787.781f6189.chunk.js": "/Greddiit/static/js/787.781f6189.chunk.js",
     "static/media/greddit_logo_final_upscaled.png": "/Greddiit/static/media/greddit_logo_final_upscaled.5ff84db4132776c2a8a2.png",
     "static/media/greddit_ph_trans.jpg": "/Greddiit/static/media/greddit_ph_trans.ded3f4337e0a638481ec.jpg",
     "index.html": "/Greddiit/index.html",
-    "main.72beaf44.css.map": "/Greddiit/static/css/main.72beaf44.css.map",
-    "main.ab63d067.js.map": "/Greddiit/static/js/main.ab63d067.js.map",
+    "main.291b9cd1.css.map": "/Greddiit/static/css/main.291b9cd1.css.map",
+    "main.089a59e5.js.map": "/Greddiit/static/js/main.089a59e5.js.map",
     "787.781f6189.chunk.js.map": "/Greddiit/static/js/787.781f6189.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.72beaf44.css",
-    "static/js/main.ab63d067.js"
+    "static/css/main.291b9cd1.css",
+    "static/js/main.089a59e5.js"
   ]
 }
