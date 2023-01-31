@@ -30,14 +30,14 @@ function TogButtonGrp({handleTabChange, texts}) {
 				size="large"
 				style={{
 					position: "relative",
-					top: '0.4vw',
-					left: '-3vw'
+					top: '0.7rem',
+					left: '-3rem',
 				}}
             >
 				{texts.map(makeToggleButton)}
             </ToggleButtonGroup>
         </div>
-    );
+    )
 }
 
 export default TogButtonGrp

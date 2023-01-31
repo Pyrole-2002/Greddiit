@@ -10,7 +10,7 @@ function TogButton(props) {
                 value="check"
                 selected={selected}
                 onChange={() => {
-                    setSelected(!selected);
+                    setSelected(!selected)
                 }}
             >
                 {props.TextInButton}

@@ -26,7 +26,7 @@ function App() {
 							<Profile />
 						</ThemeProvider>
 					}
-					path='/profile'
+					path='/user/:username'
 				/>
 				<Route
 					element={

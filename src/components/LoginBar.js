@@ -9,19 +9,21 @@ function LoginBar(props) {
 		style={{
 			backgroundColor: Colors.Midnight,
 			width: '87vw',
-			height: '70px',
+			height: '80px',
 			borderRadius: '75px',
 			boxShadow: `5px 5px 5px ${Colors.Midnight}`,
 			display: 'flex',
 			position: 'relative',
 			top: '0.1vw',
-			left: '2.2vw',
+			left: '2vw',
 		}}
 	>
 		<img src={Logo} alt="Greddiit"
-		style={{
-			margin: '0 5px 0 5px',
-		}}
+			style={{
+				width: '200px',
+				height: '85px',
+				margin: '0 5px 0 5px',
+			}}
 		/>
 		<div
 			style={{

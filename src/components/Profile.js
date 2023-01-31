@@ -3,13 +3,16 @@ import { Colors } from './Colors.js'
 import Icon from '../assets/greddit_logo_final_upscaled.png'
 import Logo from '../assets/greddit_ph_trans.jpg'
 import DefaultPfp from './DefaultPfp.js'
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Button from "@mui/material/Button"
 import Loader from './Loader.js'
 import ProfileTabs from './ProfileTabs.js'
 import ProfileInfo from './ProfileInfo.js'
 
 function Profile() {
+    const parameters = useParams()
+    console.log(parameters.username)
+
 	const navigate = useNavigate()
 
     React.useEffect(() => {
@@ -109,7 +112,7 @@ function Profile() {
                     }}
                 >
                     <DefaultPfp string="Admin Nimda" size={256} />
-					<ProfileInfo username="Admin"/>
+					<ProfileInfo username={parameters.username}/>
                 </div>
 				<ProfileTabs />
             </div>

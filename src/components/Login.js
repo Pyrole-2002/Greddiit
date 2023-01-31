@@ -19,7 +19,7 @@ function Login() {
 
 	React.useEffect(() => {
 		if (localStorage.getItem('email') === 'admin') {
-			navigate('/profile')
+			navigate('/user/admin')
 		}
 	})
 	if (localStorage.getItem('email') === 'admin')	{
@@ -45,7 +45,7 @@ function Login() {
 					'&:hover': {
 						backgroundColor: Colors.DarkGrey,
 					},
-					borderRadius: '75px',
+					borderRadius: '2%/5%',
 					transition: 'background-color 0.5s ease-in-out'
 				}}
 				style={{
@@ -63,13 +63,13 @@ function Login() {
 						flexDirection: 'row',
 						justifyContent: 'space-around',
 						alignItems: 'center',
-						overflow: 'scroll',
+						overflow: 'auto',
 					}}	
 				>
 					<img
 						src={Icon}
 						alt={"Greddiit Logo"}
-						width="420vw"
+						width="30%"
 						style={{
 							display: 'flex',
 							alignSelf: 'center',

@@ -130,7 +130,7 @@ function ProfileTabs() {
                         style={{
                             width: '400px',
                             height: '450px',
-                            overflow: 'scroll',
+                            overflow: 'auto',
                         }}
                     >
                         {followers.map(makeUserItem)}
@@ -141,7 +141,7 @@ function ProfileTabs() {
                         style={{
                             width: '400px',
                             height: '450px',
-                            overflow: 'scroll',
+                            overflow: 'auto',
                         }}
                     >
                         {followings.map(makeUserItem)}

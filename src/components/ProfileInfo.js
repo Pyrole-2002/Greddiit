@@ -45,7 +45,7 @@ function ProfileInfo(props) {
                     fontFamily: "Oxygen",
 					textAlign: "center",
 					height: "275px",
-					overflow: "scroll",
+					overflow: "auto",
                 }}
             >
                 As a comder, I embarked on a ambitious endeavor to
