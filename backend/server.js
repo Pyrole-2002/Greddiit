@@ -9,7 +9,10 @@ import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
 import { register } from "./controllers/authController.js"
+import { createPost } from "./controllers/postController.js"
 import authRoutes from "./routes/authRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
+import postRoutes from "./routes/postRoutes.js"
 
 
 
@@ -58,11 +61,14 @@ const storage = multer.diskStorage({
 const upload = multer({ storage })
 
 
+// ROUTES WITH FILES
+app.post("/auth/register", upload.single("picture"), register)
+app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 // ROUTES
-app.post("/auth/register", upload.single("picture"), register)
-
 app.use("/auth", authRoutes)
+app.use("/users", userRoutes)
+app.use("/posts", postRoutes)
 
 
 
