@@ -5,87 +5,107 @@ import User from "../models/userModel.js"
 
 
 // REGISTER USER
+// @route POST /auth/register
 export const register = async (req, res) => {
-    try {
-        const {
-            userName,
-            firstName,
-            lastName,
-            email,
-            password,
-            phoneNumber,
-            // picturePath,
-        } = req.body
+	try {
+		const {
+			userName,
+			firstName,
+			lastName,
+			email,
+			password,
+			phoneNumber,
+			// picturePath,
+		} = req.body
 
-        if (!userName || !firstName || !lastName || !email || !password || !phoneNumber) {
-            res.status(400).json({
-                Error: "Make sure the required fields are filled"
-            })
-        }
+		if (!userName || !firstName || !lastName || !email || !password || !phoneNumber) {
+			res.status(400).json({
+				Error: "Make sure the required fields are filled"
+			})
+		}
 
-        // Check if the user already exists
-        const existingUser = await User.findOne({
-            $or: [
-                { userName: userName },
-                { email: email }
-            ]
-        })
-        if (existingUser) {
-            res.status(400).json({
-                Error: "User already exists"
-            })
-        }
+		// Check if the user already exists
+		const existingUser = await User.findOne({
+			$or: [
+				{ userName: userName },
+				{ email: email }
+			]
+		})
+		if (existingUser) {
+			res.status(400).json({
+				Error: "User already exists"
+			})
+		}
 
-        const salt = await bcrypt.genSalt()
-        const passwordHash = await bcrypt.hash(password, salt)
+		const salt = await bcrypt.genSalt()
+		const passwordHash = await bcrypt.hash(password, salt)
+		
+		const newUser = new User({
+			userName,
+			firstName,
+			lastName,
+			email,
+			password: passwordHash,
+			phoneNumber,
+			// picturePath,
+		})
 
-        const newUser = new User({
-            userName,
-            firstName,
-            lastName,
-            email,
-            password: passwordHash,
-            phoneNumber,
-            // picturePath,
-        })
-
-        const savedUser = await newUser.save()
-        res.status(201).json(savedUser)
-    }
-    catch (err) {
-        res.status(500).json({
-            Error: `Error: ${err.message}`
-        })
-    }
+		const savedUser = await newUser.save()
+		res.status(201).json({
+				userName: savedUser.userName,
+				firstName: savedUser.firstName,
+				lastName: savedUser.lastName,
+				email: savedUser.email,
+				phoneNumber: savedUser.phoneNumber,
+			})
+		}
+		catch (err) {
+			res.status(500).json({
+			Error: `Error: ${err.message}`
+		})
+	}
 }
 
 
 
 // LOGIN USER
+// @route POST /auth/login
 export const login = async (req, res) => {
-    try {
-        const { email, password } = req.body
-        const user = await User.findOne({ email: email })
-        if (!user) {
-            return res.status(400).json({
-                msg: "User Does Not Exist"
-            })
-        }
+	try {
+		const {
+			userName,
+			password
+		} = req.body
 
-        const isMatch = await bcrypt.compare(password, user.password)
-        if (!isMatch) {
-            return res.status(400).json({
-                msg: "Invalid Credentials"
-            })
-        }
+		const user = await User.findOne({userName})
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
-        delete user.password
-        res.status(200).json({ token, user })
-    }
-    catch (err) {
-        res.status(500).json({
-            error: `${err.message}`
-        })
-    }
+		if (!user) {
+			return res.status(400).json({
+				msg: "User Does Not Exist"
+			})
+		}
+
+		const isMatch = await bcrypt.compare(password, user.password)
+		if (!isMatch) {
+			return res.status(400).json({
+				msg: "Invalid Credentials"
+			})
+		}
+
+		// const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
+		// delete user.password
+		// res.status(200).json({ token, user })
+		res.status(200).json({
+			userName: user.userName,
+			firstName: user.firstName,
+			lastName: user.lastName,
+			email: user.email,
+			phoneNumber: user.phoneNumber,
+		})
+	}
+	catch (err) {
+		res.status(500).json({
+			error: `${err.message}`
+		})
+	}
 }
