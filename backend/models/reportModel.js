@@ -1,8 +1,6 @@
 import mongoose from "mongoose"
-import { UserSchema } from "./userModel.js"
-import { PostSchema } from "./postModel.js"
 
-export const ReportSchema = new mongoose.Schema(
+const ReportSchema = new mongoose.Schema(
     {
         reportId: {
             type: Number,
@@ -14,15 +12,14 @@ export const ReportSchema = new mongoose.Schema(
             default: "",
         },
         postAssociated: {
-            type: PostSchema,
+            type: Number,       // postId
             required: true,
         },
         reportBy: {
-            type: UserSchema,
             required: true,
         },
         reportedUser: {
-            type: UserSchema,
+            type: String,       // userName
             required: true,
         },
     },

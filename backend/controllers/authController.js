@@ -8,26 +8,45 @@ import User from "../models/userModel.js"
 export const register = async (req, res) => {
     try {
         const {
+            userName,
             firstName,
             lastName,
             email,
             password,
-            picturePath,
-            followers,
-            following,
+            phoneNumber,
+            // picturePath,
         } = req.body
+
+        if (!userName || !firstName || !lastName || !email || !password || !phoneNumber) {
+            res.status(400).json({
+                Error: "Make sure the required fields are filled"
+            })
+        }
+
+        // Check if the user already exists
+        const existingUser = await User.findOne({
+            $or: [
+                { userName: userName },
+                { email: email }
+            ]
+        })
+        if (existingUser) {
+            res.status(400).json({
+                Error: "User already exists"
+            })
+        }
 
         const salt = await bcrypt.genSalt()
         const passwordHash = await bcrypt.hash(password, salt)
 
         const newUser = new User({
+            userName,
             firstName,
             lastName,
             email,
             password: passwordHash,
-            picturePath,
-            followers,
-            following,
+            phoneNumber,
+            // picturePath,
         })
 
         const savedUser = await newUser.save()

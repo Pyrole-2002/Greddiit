@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-export const UserSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
 	{
 		userName: {
 			type: String,
@@ -33,23 +33,23 @@ export const UserSchema = new mongoose.Schema(
 			required: true,
 			minlength: 5,
 		},
-		picturePath: {
-			type: String,
-			default: "",
-		},
-		followers: {
-			type: [UserSchema],
-			default: [],
-		},
-		followings: {
-			type: [UserSchema],
-			default: [],
-		},
 		phoneNumber: {
 			type: String,
 			required: true,
 			minlength: 10,
 			maxlength: 10,
+		},
+		picturePath: {
+			type: String,
+			default: "",
+		},
+		followers: {
+			type: [String],		// userName
+			default: [],
+		},
+		followings: {
+			type: [String],		// userName
+			default: [],
 		},
 	},
 	{

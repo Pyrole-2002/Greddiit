@@ -10,18 +10,19 @@ import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
 import { register } from "./controllers/authController.js"
-import { createPost } from "./controllers/postController.js"
+// import { createPost } from "./controllers/postController.js"
 import authRoutes from "./routes/authRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
-import postRoutes from "./routes/postRoutes.js"
+// import postRoutes from "./routes/postRoutes.js"
 
 
 
 // CONFIGURATIONS
+dotenv.config()
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-dotenv.config()
+const port = process.env.PORT || 6001
 
 const app = express()
 
@@ -63,24 +64,28 @@ const upload = multer({ storage })
 
 
 // ROUTES WITH FILES
-app.post("/auth/register", upload.single("picture"), register)
-app.post("/posts", verifyToken, upload.single("picture"), createPost);
+// app.post("/auth/register", upload.single("picture"), register)
+app.post("/auth/register", register)
+// app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 // ROUTES
 app.use("/auth", authRoutes)
 app.use("/users", userRoutes)
-app.use("/posts", postRoutes)
+// app.use("/posts", postRoutes)
 
 
 
 // MONGOOSE
-const port = process.env.PORT || 6001
+mongoose
+	.connect(process.env.MONGO_URL, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	})
+	.then(() => {
+		app.listen(port, () =>
+			console.log(`Server Started on Port ${port}`.cyan)
+		)
+	})
+	.catch((error) => console.log(`${error} did not connect`.red));
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-}).then(() => {
-	app.listen(port, () => console.log(`Server Started on Port ${port}`))
-}).catch((error) => console.log(`${error} did not connect`))
-
-mongoose.set("strictQuery", false)
+mongoose.set("strictQuery", false);

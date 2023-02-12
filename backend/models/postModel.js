@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-export const PostSchema = new mongoose.Schema(
+const PostSchema = new mongoose.Schema(
 	{
 		postId: {
 			type: Number,
@@ -12,11 +12,11 @@ export const PostSchema = new mongoose.Schema(
 			required: true,
 		},
 		postIn: {
-			type: Number,   // sgId
+			type: Number,   	// sgId
 			required: true,
 		},
 		postBy: {
-			type: String,	// userName
+			type: String,		// userName
 			required: true,
 		},
 		upvotes: {

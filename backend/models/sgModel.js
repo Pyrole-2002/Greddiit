@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
-import { UserSchema } from "./userModel.js"
 
-export const SubGreddiitSchema = new mongoose.Schema(
+const SubGreddiitSchema = new mongoose.Schema(
     {
         sgId: {
             type: Number,
@@ -27,11 +26,11 @@ export const SubGreddiitSchema = new mongoose.Schema(
             default: [],
         },
         followers: {
-            type: [UserSchema],
+            type: [String],     // userName
             default: [],
         },
         mods: {
-            type: [UserSchema],
+            type: [String],     // userName
             default: [],
         },
         posts: {
