@@ -4,6 +4,13 @@ import User from "../models/userModel.js"
 
 
 
+// Generate JWT
+const generateToken = (id) => {
+	return jwt.sign({ id: id }, process.env.JWT_SECRET)
+}
+
+
+
 // REGISTER USER
 // @route POST /auth/register
 export const register = async (req, res) => {
@@ -57,10 +64,11 @@ export const register = async (req, res) => {
 				lastName: savedUser.lastName,
 				email: savedUser.email,
 				phoneNumber: savedUser.phoneNumber,
-			})
-		}
-		catch (err) {
-			res.status(500).json({
+				token: generateToken(savedUser._id),
+		})
+	}
+	catch (err) {
+		res.status(500).json({
 			Error: `Error: ${err.message}`
 		})
 	}
@@ -92,15 +100,14 @@ export const login = async (req, res) => {
 			})
 		}
 
-		// const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
-		// delete user.password
-		// res.status(200).json({ token, user })
+		delete user.password
 		res.status(200).json({
 			userName: user.userName,
 			firstName: user.firstName,
 			lastName: user.lastName,
 			email: user.email,
 			phoneNumber: user.phoneNumber,
+			token: generateToken(user._id),
 		})
 	}
 	catch (err) {
