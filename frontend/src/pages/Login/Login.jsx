@@ -53,90 +53,14 @@ function Login() {
 					},
 					borderRadius: "15vw 2vw",
 					transition: "background-color 0.6s linear",
-					boxShadow: `5px 5px 20px ${Colors.Orange}`
+					boxShadow: `5px 5px 20px ${Colors.Orange}`,
+					overflow: "auto",
 				}}>
 					{selectedTab === "login" ? <LoginForm /> : <RegisterForm />}
 				</Box>
 			</div>
 		</div>
 	)
-
-
-
-
-
-	// const [selectedTab, setSelectedTab] = React.useState("Login")
-
-	// const handleTabChange = (newTab) => {
-	// 	setSelectedTab(newTab)
-	// }
-
-	// const navigate = useNavigate()
-
-	// React.useEffect(() => {
-	// 	if (localStorage.getItem('email') === 'admin') {
-	// 		navigate('/profile/admin')
-	// 	}
-	// })
-	// if (localStorage.getItem('email') === 'admin')	{
-	// 	return (
-	// 		<Loader />
-	// 	)
-	// }
-
-	
-  	// return (
-	// 	<div style={{
-	// 			margin: '5vh 0 5vh 0',
-	// 			display: 'flex',
-	// 			alignItems: 'flex-start',
-	// 			justifyContent: 'center',
-	// 			backgroundColor: Colors.Cyan,
-	// 		}}
-	// 	>
-	// 		<Box 
-	// 			sx={{
-	// 				width: '92vw',
-	// 				height: '90vh',
-	// 				backgroundColor: Colors.Orange,
-	// 				'&:hover': {
-	// 					backgroundColor: Colors.DarkGrey,
-	// 				},
-	// 				borderRadius: '2%/5%',
-	// 				transition: 'background-color 0.5s ease-in-out'
-	// 			}}
-	// 			style={{
-	// 				display: 'flex',
-	// 				border: `5px solid ${Colors.Orange}`,
-	// 				flexDirection: 'column',
-	// 			}}
-	// 			>
-	// 			<LoginBar handleTabChange={handleTabChange}/>
-
-	// 			<div
-	// 				style={{
-	// 					flex: 1,
-	// 					display: 'flex',
-	// 					flexDirection: 'row',
-	// 					justifyContent: 'space-around',
-	// 					alignItems: 'center',
-	// 					overflow: 'auto',
-	// 				}}	
-	// 			>
-	// 				<img
-	// 					src={Icon}
-	// 					alt={"Greddiit Logo"}
-	// 					width="30%"
-	// 					style={{
-	// 						display: 'flex',
-	// 						alignSelf: 'center',
-	// 					}}
-	// 				/>
-	// 				{selectedTab === "Login" ? <LoginForm handleTabChange={handleTabChange}/> : <RegisterForm handleTabChange={handleTabChange}/>}
-	// 			</div>
-	// 		</Box>
-	// 	</div>
-	// )
 }
 
 export default Login

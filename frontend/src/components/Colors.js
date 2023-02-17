@@ -14,7 +14,7 @@ export const Colors = {
     LightGrey: "rgb(65, 65, 65)",
     LightestGrey: "rgb(130, 130, 130)",
     DarkRed: "rgb(41, 0, 10)",
-    LightRed: "rgb(217, 50, 89)",
+    LightRed: "rgb(255, 94, 127)",
     CherryRed: "rgb(224, 0, 52)",
     Orange: "rgb(253, 64, 0)",
     Blue: "rgb(0, 55, 255)",

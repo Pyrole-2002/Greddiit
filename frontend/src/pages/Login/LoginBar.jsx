@@ -28,6 +28,7 @@ function LoginBar(props) {
 				height: '80px',
 				boxShadow: `0px 0px 10px ${Colors.Orange}`,
 				display: 'flex',
+				alignItems: "center",
 		}}>
 			<img src={Icon} alt="Icon"
 				style={{
@@ -51,20 +52,32 @@ function LoginBar(props) {
 				onChange={handleLoginChange}
 				sx={{
 					fontSize: "25px",
+					borderRadius: "500px",
+					height: "70%",
+					width: "70%",
 				}}
-				>
+			>
 				Login
 			</ToggleButton>
+			<div style={{
+				width: "400px",
+			}}/>
 			<ToggleButton
 				value="register"
 				selected={!selected}
 				onChange={handleRegisterChange}
 				sx={{
 					fontSize: "25px",
+					borderRadius: "500px",
+					height: "70%",
+					width: "70%",
 				}}
 			>
 				Register
 			</ToggleButton>
+			<div style={{
+				width: "500px",
+			}}/>
 		</div>
 	)
 }

@@ -1,19 +1,17 @@
 import React from "react"
 import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
-import CssBaseline from "@mui/material/CssBaseline"
 import TextField from "@mui/material/TextField"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
 import AppRegistrationRoundedIcon from "@mui/icons-material/AppRegistrationRounded"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
-import { ThemeProvider } from "@mui/material/styles"
 import InputLabel from "@mui/material/InputLabel"
 import MenuItem from "@mui/material/MenuItem"
 import FormControl from "@mui/material/FormControl"
 import Select from "@mui/material/Select"
-import { darkTheme, Colors } from "../../components/Colors"
+import { Colors } from "../../components/Colors"
 
 function RegisterForm() {
 	const handleSubmit = (event) => {
@@ -48,7 +46,7 @@ function RegisterForm() {
         setEmail(event.target.value)
     }
     const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
+        setPassword(event.target.value)
     }
 	const handleAgeChange = (event) => {
 		setAge(event.target.value)
@@ -83,174 +81,208 @@ function RegisterForm() {
     ]
 
   	return (
-        <div>Register</div>
-        // <div
-        //     className="RegisterForm"
-        //     style={{
-        //         position: "relative",
-        //         top: "-4vw",
-        //     }}
-        // >
-        //     <ThemeProvider theme={darkTheme}>
-        //         <Container component="main" maxWidth="xs">
-        //             <CssBaseline />
-        //             <Box
-        //                 sx={{
-        //                     marginTop: 8,
-        //                     display: "flex",
-        //                     flexDirection: "column",
-        //                     alignItems: "center",
-        //                 }}
-        //             >
-        //                 <Avatar
-        //                     sx={{
-        //                         m: 1,
-        //                         backgroundColor: "secondary.main",
-        //                     }}
-        //                 >
-        //                     <AppRegistrationRoundedIcon />
-        //                 </Avatar>
-        //                 <Typography component="h1" variant="h5">
-        //                     SIGN UP
-        //                 </Typography>
-        //                 <Box
-        //                     component="form"
-        //                     noValidate
-        //                     onSubmit={handleSubmit}
-        //                     sx={{ mt: 3 }}
-        //                 >
-        //                     <Grid container spacing={2}>
-        //                         <Grid item xs={12} sm={6}>
-        //                             <TextField
-        //                                 autoComplete="given-name"
-        //                                 name="firstName"
-        //                                 required
-        //                                 fullWidth
-        //                                 id="firstName"
-        //                                 label="First Name"
-        //                                 autoFocus
-        //                                 value={firstname}
-        //                                 onChange={handleFirstNameChange}
-        //                             />
-        //                         </Grid>
-        //                         <Grid item xs={12} sm={6}>
-        //                             <TextField
-        //                                 autoComplete="family-name"
-        //                                 name="lastName"
-        //                                 required
-        //                                 fullWidth
-        //                                 id="lastName"
-        //                                 label="Last Name"
-        //                                 value={lastname}
-        //                                 onChange={handleLastNameChange}
-        //                             />
-        //                         </Grid>
-        //                         <Grid item xs={12} sm={3}>
-        //                             <FormControl fullWidth>
-        //                                 <InputLabel id="age-select">
-        //                                     Age
-        //                                 </InputLabel>
-        //                                 <Select
-        //                                     labelId="age-simple-select"
-        //                                     value={age}
-        //                                     label="Age"
-        //                                     onChange={handleAgeChange}
-        //                                 >
-        //                                     {ages.map(makeMenuItem)}
-        //                                 </Select>
-        //                             </FormControl>
-        //                         </Grid>
-        //                         <Grid item xs={12} sm={9}>
-        //                             <TextField
-        //                                 autoComplete="tel"
-        //                                 name="phone"
-        //                                 required
-        //                                 fullWidth
-        //                                 id="phone"
-        //                                 label="Phone Number"
-        //                                 type="tel"
-        //                                 pattern="[0-9]*"
-        //                                 value={phone}
-        //                                 onChange={handlePhoneNumberInput}
-        //                             />
-        //                         </Grid>
-        //                         <Grid item xs={12} sm={7}>
-        //                             <TextField
-        //                                 autoComplete="username"
-        //                                 name="username"
-        //                                 required
-        //                                 fullWidth
-        //                                 id="username"
-        //                                 label="User Name"
-        //                                 value={username}
-        //                                 onChange={handleUsernameChange}
-        //                             />
-        //                         </Grid>
-        //                         <Grid item xs={12} sm={5}>
-        //                             <FormControl fullWidth>
-        //                                 <InputLabel id="gender-select">
-        //                                     Gender
-        //                                 </InputLabel>
-        //                                 <Select
-        //                                     labelId="gender-simple-select"
-        //                                     value={gender}
-        //                                     label="Gender"
-        //                                     onChange={handleGenderChange}
-        //                                 >
-        //                                     {genders.map(makeMenuItem)}
-        //                                 </Select>
-        //                             </FormControl>
-        //                         </Grid>
-        //                         <Grid item xs={12}>
-        //                             <TextField
-        //                                 autoComplete="email"
-        //                                 name="email"
-        //                                 required
-        //                                 fullWidth
-        //                                 id="email"
-        //                                 label="Email Address"
-        //                                 value={email}
-        //                                 onChange={handleEmailChange}
-        //                             />
-        //                         </Grid>
-        //                         <Grid item xs={12}>
-        //                             <TextField
-        //                                 autoComplete="new-password"
-        //                                 name="password"
-        //                                 required
-        //                                 fullWidth
-        //                                 id="password"
-        //                                 label="Password"
-        //                                 type="password"
-        //                                 value={password}
-        //                                 onChange={handlePasswordChange}
-        //                             />
-        //                         </Grid>
-        //                     </Grid>
-        //                     <Button
-        //                         type="submit"
-        //                         fullWidth
-        //                         variant="contained"
-        //                         sx={{
-        //                             mt: 3,
-        //                             mb: 2,
-        //                         }}
-        //                         disabled={
-        //                             firstname === "" ||
-        //                             lastname === "" ||
-        //                             phone === "" ||
-        //                             username === "" ||
-        //                             email === "" ||
-        //                             password === ""
-        //                         }
-        //                     >
-        //                         Register
-        //                     </Button>
-        //                 </Box>
-        //             </Box>
-        //         </Container>
-        //     </ThemeProvider>
-        // </div>
+        <Container component="main">
+            <Box
+                sx={{
+                    marginTop: 15,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
+                <Avatar
+                    sx={{
+                        margin: 1,
+                        backgroundColor: Colors.LightRed,
+                        width: 85,
+                        height: 85,
+                    }}
+                >
+                    <AppRegistrationRoundedIcon sx={{ fontSize: "300%" }}/>
+                </Avatar>
+				<div style={{
+					textAlign: "center",
+					fontSize: "55px",
+					height: "10%",
+				}}>
+					REGISTER
+				</div>
+                <Box
+                    component="form"
+                    noValidate
+                    onSubmit={handleSubmit}
+                    sx={{
+                        marginTop: 10,
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						height: "60%",
+						width: "70%",
+                    }}
+                >
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                autoComplete="given-name"
+                                name="firstName"
+                                required
+                                fullWidth
+                                id="firstName"
+                                label="First Name"
+                                autoFocus
+                                value={firstname}
+                                onChange={handleFirstNameChange}
+                                InputProps={{
+                                    sx: {
+                                        fontSize: "22px"
+                                    }
+                                }}
+                                />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                autoComplete="family-name"
+                                name="lastName"
+                                required
+                                fullWidth
+                                id="lastName"
+                                label="Last Name"
+                                value={lastname}
+                                onChange={handleLastNameChange}
+                                InputProps={{
+                                    sx: {
+                                        fontSize: "22px"
+                                    }
+                                }}
+                                />
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <FormControl fullWidth>
+                                <InputLabel id="age-select">
+                                    Age
+                                </InputLabel>
+                                <Select
+                                    labelId="age-simple-select"
+                                    value={age}
+                                    label="Age"
+                                    onChange={handleAgeChange}
+                                >
+                                    {ages.map(makeMenuItem)}
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={9}>
+                            <TextField
+                                autoComplete="tel"
+                                name="phone"
+                                required
+                                fullWidth
+                                id="phone"
+                                label="Phone Number"
+                                type="tel"
+                                pattern="[0-9]*"
+                                value={phone}
+                                onChange={handlePhoneNumberInput}
+                                InputProps={{
+                                    sx: {
+                                        fontSize: "22px"
+                                    }
+                                }}
+                                />
+                        </Grid>
+                        <Grid item xs={12} sm={7}>
+                            <TextField
+                                autoComplete="username"
+                                name="username"
+                                required
+                                fullWidth
+                                id="username"
+                                label="User Name"
+                                value={username}
+                                onChange={handleUsernameChange}
+                                InputProps={{
+                                    sx: {
+                                        fontSize: "22px"
+                                    }
+                                }}
+                                />
+                        </Grid>
+                        <Grid item xs={12} sm={5}>
+                            <FormControl fullWidth>
+                                <InputLabel
+                                    id="gender-select"
+                                    >
+                                    Gender
+                                </InputLabel>
+                                <Select
+                                    labelId="gender-simple-select"
+                                    value={gender}
+                                    label="Gender"
+                                    onChange={handleGenderChange}
+                                >
+                                    {genders.map(makeMenuItem)}
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                autoComplete="email"
+                                name="email"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email Address"
+                                value={email}
+                                onChange={handleEmailChange}
+                                InputProps={{
+                                    sx: {
+                                        fontSize: "22px"
+                                    }
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                autoComplete="new-password"
+                                name="password"
+                                required
+                                fullWidth
+                                id="password"
+                                label="Password"
+                                type="password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                InputProps={{
+                                    sx: {
+                                        fontSize: "22px"
+                                    }
+                                }}
+                            />
+                        </Grid>
+                    </Grid>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{
+                            mt: 3,
+                            mb: 2,
+                            fontSize: "25px",
+                        }}
+                        disabled={
+                            firstname === "" ||
+                            lastname === "" ||
+                            phone === "" ||
+                            username === "" ||
+                            email === "" ||
+                            password === ""
+                        }
+                    >
+                        Register
+                    </Button>
+                </Box>
+            </Box>
+        </Container>
     )
 }
 

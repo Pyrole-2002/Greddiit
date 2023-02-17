@@ -48,24 +48,21 @@ function LoginForm(props) {
 		<Container component="main">
 			<Box
 				sx={{
+					marginTop: 25,
 					display: "flex",
 					flexDirection: "column",
 					alignItems: "center",
-					justifyContent: "center",
 				}}
 			>
-				<div style={{
-					height: "25%",
-				}}/>
 				<Avatar
 					sx={{
-						margin: 2,
+						margin: 1,
 						backgroundColor: Colors.Cyan,
-						width: "10%",
-						height: "10%",
+						width: 85,
+						height: 85,
 					}}
 				>
-					<LockOutlinedIcon sx={{ fontSize: "350%" }}/>
+					<LockOutlinedIcon sx={{ fontSize: "300%" }}/>
 				</Avatar>
 				<div style={{
 					textAlign: "center",
@@ -78,12 +75,13 @@ function LoginForm(props) {
 					component="form"
 					onSubmit={handleSubmit}
 					noValidate
-					style={{
+					sx={{
+						marginTop: 10,
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
 						height: "60%",
-						width: "100%",
+						width: "60%",
 					}}
 				>
 					<TextField
@@ -97,16 +95,12 @@ function LoginForm(props) {
 						autoFocus
 						value={email}
 						onChange={handleEmailChange}
-						style={{
-							width: "55%",
-							height: "12%",
-						}}
 						InputProps={{
 							sx: {
 								fontSize: "22px"
 							}
 						}}
-						/>
+					/>
 					<TextField
 						margin="normal"
 						required
@@ -118,10 +112,6 @@ function LoginForm(props) {
 						type="password"
 						value={password}
 						onChange={handlePasswordChange}
-						style={{
-							width: "55%",
-							height: "12%",
-						}}
 						InputProps={{
 							sx: {
 								fontSize: "22px"
@@ -136,8 +126,6 @@ function LoginForm(props) {
 						sx={{
 							mt: 3,
 							mb: 2,
-							width: "55%",
-							height: "10%",
 							fontSize: "25px",
 						}}
 					>
