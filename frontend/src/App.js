@@ -4,26 +4,28 @@ import {
 	Route,
 	Navigate,
 } from "react-router-dom"
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import Login from "./pages/Login/Login"
 import Profile from "./pages/Profile/Profile"
-// import Register from "./pages/Register/Register"
+import { darkTheme } from "./components/Colors"
 
 function App() {
 	return (
-		<Routes>
-			<Route path="/" element={
-				<Login />
-			} />
-			<Route path="/profile/:userName" element={
-				<Profile />
-			} />
-			{/* <Route path="/*" element={
-				<Login />
-			} /> */}
-			<Route path="/*" element={
-				<Navigate to="/" />
-			} />
-		</Routes>
+		<ThemeProvider theme={darkTheme}>
+			<CssBaseline />
+			<Routes>
+				<Route path="/" element={
+					<Login />
+				} />
+				<Route path="/profile/:userName" element={
+					<Profile />
+				} />
+				<Route path="/*" element={
+					<Navigate to="/" />
+				} />
+			</Routes>
+		</ThemeProvider>
 	)
 }
 
