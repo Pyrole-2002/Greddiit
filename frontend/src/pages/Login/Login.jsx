@@ -3,12 +3,11 @@ import {
 	useNavigate,
 } from "react-router-dom"
 import Box from "@mui/material/Box"
-import Icon from "../../assets/greddit_logo_final_upscaled.png"
 import { Colors } from "../../components/Colors"
-import LoginBar from "./LoginBar"
-import LoginForm from "./LoginForm"
-import RegisterForm from "./RegisterForm"
-import Loader from "../../components/Loader"
+import LoginBar from "pages/Login/LoginBar"
+import LoginForm from "pages/Login/LoginForm"
+import RegisterForm from "pages/Login/RegisterForm"
+import Loader from "components/Loader"
 
 function Login() {
 	const [selectedTab, setSelectedTab] = React.useState("login")

@@ -5,13 +5,12 @@ import TextField from "@mui/material/TextField"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
 import AppRegistrationRoundedIcon from "@mui/icons-material/AppRegistrationRounded"
-import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import InputLabel from "@mui/material/InputLabel"
 import MenuItem from "@mui/material/MenuItem"
 import FormControl from "@mui/material/FormControl"
 import Select from "@mui/material/Select"
-import { Colors } from "../../components/Colors"
+import { Colors } from "components/Colors"
 
 function RegisterForm() {
 	const handleSubmit = (event) => {

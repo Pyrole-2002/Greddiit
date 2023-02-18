@@ -3,6 +3,7 @@ import {
     createAsyncThunk,
 } from '@reduxjs/toolkit'
 import { STATES } from 'mongoose'
+import authService from "redux/auth/authService"
 
 // Get user from local storage
 const user = JSON.parse(localStorage.getItem("user"))

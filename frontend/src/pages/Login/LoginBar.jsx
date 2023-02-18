@@ -1,8 +1,8 @@
 import React from 'react'
-import { Colors } from "../../components/Colors"
-import Icon from "../../assets/greddit_logo_final_upscaled.png"
-import Logo from "../../assets/greddit_ph_trans.jpg"
 import ToggleButton from "@mui/material/ToggleButton"
+import { Colors } from "components/Colors"
+import Icon from "assets/greddit_logo_final_upscaled.png"
+import Logo from "assets/greddit_ph_trans.jpg"
 
 function LoginBar(props) {
 	const [selected, setSelected] = React.useState(true)

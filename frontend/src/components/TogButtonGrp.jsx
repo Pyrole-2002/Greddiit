@@ -1,7 +1,7 @@
 import React from 'react'
 import ToggleButton from "@mui/material/ToggleButton"
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
-import { Colors } from "../components/Colors.js"
+import { Colors } from "components/Colors.js"
 
 function TogButtonGrp({handleTabChange, texts}) {
 	const [alignment, setAlignment] = React.useState(texts[0])

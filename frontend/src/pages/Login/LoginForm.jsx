@@ -5,16 +5,10 @@ import {
 import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import TextField from "@mui/material/TextField"
-import FormControlLabel from "@mui/material/FormControlLabel"
-import Checkbox from "@mui/material/Checkbox"
-import Link from "@mui/material/Link"
-import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import Container from "@mui/material/Container"
-import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded"
-import LockResetRoundedIcon from "@mui/icons-material/LockResetRounded"
-import { Colors } from '../../components/Colors.js'
+import { Colors } from 'components/Colors.js'
 
 function LoginForm(props) {
 	const navigate = useNavigate()
