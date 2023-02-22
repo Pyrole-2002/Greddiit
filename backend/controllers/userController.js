@@ -29,13 +29,11 @@ export const getUserFollowers = async (req, res) => {
 				_id,
 				firstName,
 				lastName,
-				picturePath
 			}) => {
 				return {
 					_id,
 					firstName,
 					lastName,
-					picturePath
 				}
 			}
 		)
@@ -61,13 +59,11 @@ export const getUserFollowings = async (req, res) => {
 				_id,
 				firstName,
 				lastName,
-				picturePath
 			}) => {
 				return {
 					_id,
 					firstName,
 					lastName,
-					picturePath
 				}
 			}
 		)
@@ -104,12 +100,15 @@ export const removeFollower = async (req, res) => {
             user.followers.map((id) => User.findById(id))
         )
         const formattedFollowers = followers.map(
-            ({ _id, firstName, lastName, picturePath }) => {
+            ({
+				_id,
+				firstName,
+				lastName,
+			}) => {
                 return {
                     _id,
                     firstName,
                     lastName,
-                    picturePath,
                 }
             }
         )
@@ -143,12 +142,15 @@ export const addFollowing = async (req, res) => {
             user.followings.map((id) => User.findById(id))
         )
         const formattedFollowings = followings.map(
-            ({ _id, firstName, lastName, picturePath }) => {
+            ({
+				_id,
+				firstName,
+				lastName,
+			}) => {
                 return {
                     _id,
                     firstName,
                     lastName,
-                    picturePath,
                 }
             }
         )

@@ -1,4 +1,14 @@
 import React from "react"
+import {
+    useSelector,
+    useDispatch,
+} from "react-redux"
+import {
+    useNavigate,
+} from "react-router-dom"
+import {
+    toast,
+} from "react-toastify"
 import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import TextField from "@mui/material/TextField"
@@ -11,16 +21,67 @@ import MenuItem from "@mui/material/MenuItem"
 import FormControl from "@mui/material/FormControl"
 import Select from "@mui/material/Select"
 import { Colors } from "components/Colors"
+import {
+    register,
+    reset,
+} from "redux/auth/authSlice"
+import Loader from "components/Loader"
 
 function RegisterForm() {
-	const handleSubmit = (event) => {
-		event.preventDefault()
-		const data = new FormData(event.currentTarget)
-		console.log({
-			email: data.get("email"),
-			password: data.get("password"),
-		})
-	}
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    
+    const {
+        user,
+        isLoading,
+        isError,
+        isSuccess,
+        message,
+    } = useSelector((state) => state.auth)
+
+    const data = {
+        firstName: "",
+        lastName: "",
+        age: "",
+        phoneNumber: "",
+        userName: "",
+        gender: "",
+        email: "",
+        password: "",
+    }
+    
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        const rawData = new FormData(event.currentTarget)
+        data.firstname = rawData.get("firstname")
+        data.lastname = rawData.get("lastname")
+        data.age = rawData.get("age")
+        data.phone = rawData.get("phone")
+        data.username = rawData.get("username")
+        data.gender = rawData.get("gender")
+        data.email = rawData.get("email")
+        data.password = rawData.get("password")
+
+        if (data.phone.length !== 10) {
+            toast.error("Invalid phone number")
+        }
+
+        dispatch(register(data))
+    }
+
+    React.useEffect(
+        () => {
+            if (isError) {
+                toast.error(message)
+            }
+            if (isSuccess || user) {
+                navigate("/profile/dsf")
+            }
+            dispatch(reset())
+        },
+        [user, isError, isSuccess, message, navigate, dispatch]
+    )
 
     const [firstname, setFirstName] = React.useState("")
     const [lastname, setLastName] = React.useState("")
@@ -79,11 +140,17 @@ function RegisterForm() {
         'Female',
     ]
 
+    if (isLoading) {
+        return (
+            <Loader />
+        )
+    }
+
   	return (
         <Container component="main">
             <Box
                 sx={{
-                    marginTop: 15,
+                    marginTop: "5%",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -103,6 +170,7 @@ function RegisterForm() {
 					textAlign: "center",
 					fontSize: "55px",
 					height: "10%",
+                    fontWeight: "bold",
 				}}>
 					REGISTER
 				</div>
@@ -111,7 +179,7 @@ function RegisterForm() {
                     noValidate
                     onSubmit={handleSubmit}
                     sx={{
-                        marginTop: 10,
+                        marginTop: "5%",
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",

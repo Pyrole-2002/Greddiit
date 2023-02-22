@@ -39,10 +39,6 @@ const UserSchema = new mongoose.Schema(
 			minlength: 10,
 			maxlength: 10,
 		},
-		picturePath: {
-			type: String,
-			default: "",
-		},
 		followers: {
 			type: [String],		// userName
 			default: [],

@@ -4,8 +4,8 @@ import {
 	Route,
 	Navigate,
 } from "react-router-dom"
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles"
+import CssBaseline from "@mui/material/CssBaseline"
 import Login from "pages/Login/Login"
 import Profile from "pages/Profile/Profile"
 import { darkTheme } from "components/Colors"

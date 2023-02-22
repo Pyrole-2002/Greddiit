@@ -22,7 +22,6 @@ export const register = async (req, res) => {
 			email,
 			password,
 			phoneNumber,
-			// picturePath,
 		} = req.body
 
 		if (!userName || !firstName || !lastName || !email || !password || !phoneNumber) {
@@ -54,7 +53,6 @@ export const register = async (req, res) => {
 			email,
 			password: passwordHash,
 			phoneNumber,
-			// picturePath,
 		})
 
 		const savedUser = await newUser.save()

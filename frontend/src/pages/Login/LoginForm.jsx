@@ -42,7 +42,7 @@ function LoginForm(props) {
 		<Container component="main">
 			<Box
 				sx={{
-					marginTop: 25,
+					marginTop: "10%",
 					display: "flex",
 					flexDirection: "column",
 					alignItems: "center",
@@ -62,6 +62,7 @@ function LoginForm(props) {
 					textAlign: "center",
 					fontSize: "55px",
 					height: "10%",
+					fontWeight: "bold",
 				}}>
 					LOGIN
 				</div>
