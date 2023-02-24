@@ -2,13 +2,6 @@ import mongoose from 'mongoose'
 
 const UserSchema = new mongoose.Schema(
 	{
-		userName: {
-			type: String,
-			required: true,
-			minlength: 2,
-			maxlength: 50,
-			unique: true,
-		},
 		firstName: {
 			type: String,
 			required: true,
@@ -21,6 +14,27 @@ const UserSchema = new mongoose.Schema(
 			minlength: 2,
 			maxlength: 50,
 		},
+		age: {
+			type: Number,
+			default: 0,
+		},
+		phoneNumber: {
+			type: String,
+			required: true,
+			minlength: 10,
+			maxlength: 10,
+		},
+		userName: {
+			type: String,
+			required: true,
+			minlength: 2,
+			maxlength: 50,
+			unique: true,
+		},
+		gender: {
+			type: String,
+			default: 'male',
+		},
 		email: {
 			type: String,
 			required: true,
@@ -32,12 +46,6 @@ const UserSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 			minlength: 5,
-		},
-		phoneNumber: {
-			type: String,
-			required: true,
-			minlength: 10,
-			maxlength: 10,
 		},
 		followers: {
 			type: [String],		// userName

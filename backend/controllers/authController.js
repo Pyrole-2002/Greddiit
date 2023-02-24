@@ -14,14 +14,17 @@ const generateToken = (id) => {
 // REGISTER USER
 // @route POST /auth/register
 export const register = async (req, res) => {
+	console.log("aryan")
 	try {
 		const {
-			userName,
 			firstName,
 			lastName,
+			age,
+			phoneNumber,
+			userName,
+			gender,
 			email,
 			password,
-			phoneNumber,
 		} = req.body
 
 		if (!userName || !firstName || !lastName || !email || !password || !phoneNumber) {
@@ -47,22 +50,24 @@ export const register = async (req, res) => {
 		const passwordHash = await bcrypt.hash(password, salt)
 		
 		const newUser = new User({
-			userName,
 			firstName,
 			lastName,
+			age,
+			phoneNumber,
+			userName,
+			gender,
 			email,
 			password: passwordHash,
-			phoneNumber,
 		})
 
 		const savedUser = await newUser.save()
 		res.status(201).json({
-				userName: savedUser.userName,
-				firstName: savedUser.firstName,
-				lastName: savedUser.lastName,
-				email: savedUser.email,
-				phoneNumber: savedUser.phoneNumber,
-				token: generateToken(savedUser._id),
+			firstName: savedUser.firstName,
+			lastName: savedUser.lastName,
+			phoneNumber: savedUser.phoneNumber,
+			userName: savedUser.userName,
+			email: savedUser.email,
+			token: generateToken(savedUser._id),
 		})
 	}
 	catch (err) {
@@ -100,11 +105,11 @@ export const login = async (req, res) => {
 
 		delete user.password
 		res.status(200).json({
-			userName: user.userName,
 			firstName: user.firstName,
 			lastName: user.lastName,
-			email: user.email,
 			phoneNumber: user.phoneNumber,
+			userName: user.userName,
+			email: user.email,
 			token: generateToken(user._id),
 		})
 	}

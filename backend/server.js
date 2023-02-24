@@ -10,10 +10,8 @@ import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
 import { register } from "./controllers/authController.js"
-// import { createPost } from "./controllers/postController.js"
 import authRoutes from "./routes/authRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
-// import postRoutes from "./routes/postRoutes.js"
 
 
 
@@ -28,9 +26,9 @@ const app = express()
 
 app.use(express.json())
 
-app.use(helmet.crossOriginResourcePolicy({
-	policy: "cross-origin"
-}))
+// app.use(helmet.crossOriginResourcePolicy({
+// 	policy: "cross-origin"
+// }))
 
 app.use(morgan("common"))
 
