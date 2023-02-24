@@ -48,7 +48,7 @@ const root = createRoot(container)
 
 root.render(
 	<React.StrictMode>
-		<Router>
+		<Router forceRefresh={true}>
 			<Provider store={store}>
 				<PersistGate loading={null} persistor={persistStore(store)}>
 					<App />

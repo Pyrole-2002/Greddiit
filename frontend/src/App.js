@@ -18,7 +18,7 @@ function App() {
 				<Route path="/" element={
 					<Login />
 				} />
-				<Route path="/profile/:userName" element={
+				<Route path="/profile/" element={
 					<Profile />
 				} />
 				<Route path="/*" element={

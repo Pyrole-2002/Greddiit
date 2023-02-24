@@ -14,10 +14,6 @@ const UserSchema = new mongoose.Schema(
 			minlength: 2,
 			maxlength: 50,
 		},
-		age: {
-			type: Number,
-			default: 0,
-		},
 		phoneNumber: {
 			type: String,
 			required: true,
@@ -30,10 +26,6 @@ const UserSchema = new mongoose.Schema(
 			minlength: 2,
 			maxlength: 50,
 			unique: true,
-		},
-		gender: {
-			type: String,
-			default: 'male',
 		},
 		email: {
 			type: String,

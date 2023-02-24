@@ -13,26 +13,36 @@ import { Colors } from 'components/Colors.js'
 function LoginForm(props) {
 	const navigate = useNavigate()
 
-	const handleSubmit = (event) => {
+	const data = {
+		userName: "",
+		password: "",
+	}
+
+	const handleSubmit = async (event) => {
 		event.preventDefault()
-		const data = new FormData(event.currentTarget)
-		console.log({
-			email: data.get('email'),
-			password: data.get('password')
-		})
-		if ((data.get('email') === "admin") && (data.get('password') === "admin")) {
-			if (data.get('remember') === true) {
+		const rawData = new FormData(event.currentTarget)
+		data.userName = rawData.get("username")
+		data.password = rawData.get("password")
+
+		const savedUserCreds = await fetch(
+			"http://localhost:3001/auth/login",
+			{
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" },
 			}
-			localStorage.setItem('email', data.get('email'))
-			navigate('/profile')
+		)
+		const loggedIn = await savedUserCreds.json()
+		if (loggedIn) {
+			navigate("/profile")
 		}
 	}
 
-	const [email, setEmail] = React.useState("")
+	const [username, setUsername] = React.useState("")
 	const [password, setPassword] = React.useState("")
 
-	const handleEmailChange = (event) => {
-		setEmail(event.target.value)
+	const handleUsernameChange = (event) => {
+		setUsername(event.target.value)
 	}
 	const handlePasswordChange = (event) => {
 		setPassword(event.target.value)
@@ -83,13 +93,13 @@ function LoginForm(props) {
 						margin="normal"
 						required
 						fullWidth
-						id="email"
-						label="Email Address"
-						name="email"
-						autoComplete="email"
+						id="username"
+						label="User Name"
+						name="username"
+						autoComplete="username"
 						autoFocus
-						value={email}
-						onChange={handleEmailChange}
+						value={username}
+						onChange={handleUsernameChange}
 						InputProps={{
 							sx: {
 								fontSize: "22px"
@@ -117,7 +127,7 @@ function LoginForm(props) {
 						type="submit"
 						fullWidth
 						variant="contained"
-						disabled={email ==="" || password ===""}
+						disabled={username ==="" || password ===""}
 						sx={{
 							mt: 3,
 							mb: 2,

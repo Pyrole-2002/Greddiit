@@ -17,16 +17,17 @@ import { Colors } from "components/Colors"
 import Loader from "components/Loader"
 import { setLogin } from "redux/index"
 
-function RegisterForm() {
+function RegisterForm(props) {
+    const setSelectedTab = (value) => {
+        props.setSelectedTab(value)
+    }
     const navigate = useNavigate()
     
     const data = {
         firstName: "",
         lastName: "",
-        age: "",
         phoneNumber: "",
         userName: "",
-        gender: "",
         email: "",
         password: "",
     }
@@ -37,19 +38,18 @@ function RegisterForm() {
         const rawData = new FormData(event.currentTarget)
         data.firstName = rawData.get("firstname")
         data.lastName = rawData.get("lastname")
-        data.age = rawData.get("age")
         data.phoneNumber = rawData.get("phone")
         data.userName = rawData.get("username")
-        data.gender = rawData.get("gender")
         data.email = rawData.get("email")
         data.password = rawData.get("password")
+        console.log(data)
 
         if (data.phoneNumber.length !== 10) {
             toast.error("Invalid phone number")
         }
 
         const savedUserResponse = await fetch(
-            "http://localhost:5000/auth/register",
+            "http://localhost:3001/auth/register",
             {
                 method: "POST",
                 body: JSON.stringify(data),
@@ -58,20 +58,14 @@ function RegisterForm() {
         )
         const savedUser = await savedUserResponse.json()
         if (savedUser) {
-            dispatchEvent(setLogin({
-                user: savedUser.user,
-                token: savedUser.token,
-            }))
-            navigate("/")
+            setSelectedTab("login")
         }
     }
 
     const [firstname, setFirstName] = React.useState("")
     const [lastname, setLastName] = React.useState("")
-	const [age, setAge] = React.useState("")
 	const [phone, setPhone] = React.useState("")
 	const [username, setUsername] = React.useState("")
-	const [gender, setGender] = React.useState("")
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("")
 
@@ -91,16 +85,10 @@ function RegisterForm() {
     const handlePasswordChange = (event) => {
         setPassword(event.target.value)
     }
-	const handleAgeChange = (event) => {
-		setAge(event.target.value)
-	}
 	const handleUsernameChange = (event) => {
         let userName = event.target.value
         userName = userName.replace(" ", "")
 		setUsername(userName)
-	}
-	const handleGenderChange = (event) => {
-		setGender(event.target.value)
 	}
 
     const handlePhoneNumberInput = (event) => {
@@ -108,20 +96,6 @@ function RegisterForm() {
         phoneNumber = phoneNumber.replace(/[^0-9]/g, "")
         setPhone(phoneNumber)
     }
-
-	const makeMenuItem = (value) => {
-		return (
-			<MenuItem value={value}>
-				{value}
-			</MenuItem>
-		)
-	}
-
-	const ages = [...Array(101).keys()]
-    const genders = [
-        'Male',
-        'Female',
-    ]
 
   	return (
         <Container component="main">
@@ -168,7 +142,7 @@ function RegisterForm() {
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 autoComplete="given-name"
-                                name="firstName"
+                                name="firstname"
                                 required
                                 fullWidth
                                 id="firstName"
@@ -181,12 +155,12 @@ function RegisterForm() {
                                         fontSize: "22px"
                                     }
                                 }}
-                                />
+                            />
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 autoComplete="family-name"
-                                name="lastName"
+                                name="lastname"
                                 required
                                 fullWidth
                                 id="lastName"
@@ -198,24 +172,9 @@ function RegisterForm() {
                                         fontSize: "22px"
                                     }
                                 }}
-                                />
+                            />
                         </Grid>
-                        <Grid item xs={12} sm={3}>
-                            <FormControl fullWidth>
-                                <InputLabel id="age-select">
-                                    Age
-                                </InputLabel>
-                                <Select
-                                    labelId="age-simple-select"
-                                    value={age}
-                                    label="Age"
-                                    onChange={handleAgeChange}
-                                >
-                                    {ages.map(makeMenuItem)}
-                                </Select>
-                            </FormControl>
-                        </Grid>
-                        <Grid item xs={12} sm={9}>
+                        <Grid item xs={12} sm={6}>
                             <TextField
                                 autoComplete="tel"
                                 name="phone"
@@ -232,9 +191,9 @@ function RegisterForm() {
                                         fontSize: "22px"
                                     }
                                 }}
-                                />
+                            />
                         </Grid>
-                        <Grid item xs={12} sm={7}>
+                        <Grid item xs={12} sm={6}>
                             <TextField
                                 autoComplete="username"
                                 name="username"
@@ -249,24 +208,7 @@ function RegisterForm() {
                                         fontSize: "22px"
                                     }
                                 }}
-                                />
-                        </Grid>
-                        <Grid item xs={12} sm={5}>
-                            <FormControl fullWidth>
-                                <InputLabel
-                                    id="gender-select"
-                                    >
-                                    Gender
-                                </InputLabel>
-                                <Select
-                                    labelId="gender-simple-select"
-                                    value={gender}
-                                    label="Gender"
-                                    onChange={handleGenderChange}
-                                >
-                                    {genders.map(makeMenuItem)}
-                                </Select>
-                            </FormControl>
+                            />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField

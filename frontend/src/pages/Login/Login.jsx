@@ -55,7 +55,7 @@ function Login() {
 					boxShadow: `5px 5px 20px ${Colors.Orange}`,
 					overflow: "auto",
 				}}>
-					{selectedTab === "login" ? <LoginForm /> : <RegisterForm />}
+					{selectedTab === "login" ? <LoginForm /> : <RegisterForm setSelectedTab={setSelectedTab}/>}
 				</Box>
 			</div>
 		</div>

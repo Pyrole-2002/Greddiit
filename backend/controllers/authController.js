@@ -14,15 +14,12 @@ const generateToken = (id) => {
 // REGISTER USER
 // @route POST /auth/register
 export const register = async (req, res) => {
-	console.log("aryan")
 	try {
 		const {
 			firstName,
 			lastName,
-			age,
 			phoneNumber,
 			userName,
-			gender,
 			email,
 			password,
 		} = req.body
@@ -52,10 +49,8 @@ export const register = async (req, res) => {
 		const newUser = new User({
 			firstName,
 			lastName,
-			age,
 			phoneNumber,
 			userName,
-			gender,
 			email,
 			password: passwordHash,
 		})
