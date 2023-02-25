@@ -25,7 +25,7 @@ function LoginForm(props) {
 		data.password = rawData.get("password")
 
 		const savedUserCreds = await fetch(
-			"http://localhost:3001/auth/login",
+			"/api/auth/login",
 			{
                 method: "POST",
                 body: JSON.stringify(data),

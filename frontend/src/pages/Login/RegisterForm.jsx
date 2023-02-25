@@ -49,7 +49,7 @@ function RegisterForm(props) {
         }
 
         const savedUserResponse = await fetch(
-            "http://localhost:3001/auth/register",
+            "/api/auth/register",
             {
                 method: "POST",
                 body: JSON.stringify(data),
